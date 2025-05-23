@@ -18,6 +18,8 @@ export class TaskService {
 
   public readonly _apiUrl = environment.apiUrl;
 
+  public isLoadingTask = signal(false);
+
   public getTasks(): Observable<Task[]> {
     return this._httpClient.get<Task[]>(`${this._apiUrl}/tasks`).pipe(
       tap(tasks => {
@@ -29,15 +31,14 @@ export class TaskService {
 
   public createTask(task: Partial<Task>): Observable<Task> {
     return this._httpClient
-    .post<Task>(`${this._apiUrl}/tasks`, task)
-    // .pipe(tap(tasks => this.insertATaskInTheTasksList(tasks)));
-    
+    .post<Task>(`${this._apiUrl}/tasks`, task)    
   }
 
   public insertATaskInTheTasksList(newTask: Task): void {
-    const updatedTasks = [...this.tasks(), newTask];
-    const sortedTasks = this.getSortedTasks(updatedTasks);
-    this.tasks.set(updatedTasks);
+    this.tasks.update(tasks => {
+      const newTaskList = [... tasks, newTask];
+      return this.getSortedTasks(newTaskList);
+    });
   }
 
   public updateTask(updatedTask: Task): Observable<Task> {
