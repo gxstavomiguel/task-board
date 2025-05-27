@@ -47,7 +47,7 @@ const COMMONS = [
       class="flex flex-row gap-2 select-none"
       [formGroup]="newTaskForm">
       <mat-form-field class="w-full">
-        <mat-label>Tarefa</mat-label>
+        <mat-label data-testid="titleLabel">Tarefa</mat-label>
         <input
           formControlName="title"
           matInput
@@ -57,9 +57,10 @@ const COMMONS = [
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Categoria</mat-label>
+        <mat-label data-testid="categoryIdLabel">Categoria</mat-label>
 
         <mat-select
+          data-testid="matSelect"
           formControlName="categoryId"
           (selectionChange)="selectionChangeHandler($event)"
           (keyup.enter)="onEnterToAddATask()">
