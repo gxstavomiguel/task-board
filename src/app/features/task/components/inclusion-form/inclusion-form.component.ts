@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { IncludeTaskFormComponent } from './include-task-form/include-task-form.component';
 import { CategoryService } from '../../../category/service/category.service';
 import { categoryIdBackgroundColors } from '../../../category/constants/category-colors';

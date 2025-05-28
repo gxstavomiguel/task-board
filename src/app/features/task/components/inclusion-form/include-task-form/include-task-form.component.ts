@@ -95,7 +95,7 @@ export class IncludeTaskFormComponent {
     return this.taskService.isLoadingTask();
   });
 
-  public selectionChangeHandler(event: MatSelectChange) {
+  public selectionChangeHandler(event: MatSelectChange): void {
     const categoryId = event.value;
     this.categoryService.selectedCategoryId.set(categoryId);
   }
