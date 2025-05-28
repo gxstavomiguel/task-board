@@ -2,8 +2,6 @@ import { Component, inject } from '@angular/core';
 import {
   MatButtonModule,
   MatIconButton,
-  MatAnchor,
-  MatButton,
 } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
@@ -17,8 +15,6 @@ import { ThemeService } from '../../services/theme.service';
         MatCardModule,
         MatIcon,
         MatIconButton,
-        MatAnchor,
-        MatButton,
         MatTooltipModule,
     ],
     template: `
