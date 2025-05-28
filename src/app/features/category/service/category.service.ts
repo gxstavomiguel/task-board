@@ -1,7 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Category } from '../model/category.interface';
+import { Category } from '../model/category.model';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Observable, tap } from 'rxjs';
 
