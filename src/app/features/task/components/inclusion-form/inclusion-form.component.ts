@@ -8,10 +8,9 @@ import { NgClass } from '@angular/common';
 const COMPONENTS = [IncludeTaskFormComponent]
 const COMMONS = [NgClass];
 @Component({
-  selector: 'app-inclusion-form',
-  standalone: true,
-  imports: [...COMPONENTS, ...COMMONS],
-  template: `
+    selector: 'app-inclusion-form',
+    imports: [...COMPONENTS, ...COMMONS],
+    template: `
   
     <div class="grid grid-cols-12 gap-2 mt-8">
       <app-include-task-form class="col-span-11"/>
@@ -29,8 +28,8 @@ const COMMONS = [NgClass];
       </div>
     </div>
   `,
-  styles: '',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: '',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InclusionFormComponent { 
 

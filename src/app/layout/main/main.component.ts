@@ -7,10 +7,9 @@ const COMPONENTS = [CategoryComponent, TaskComponent];
 const MODULES = [MatDividerModule];
 
 @Component({
-  selector: 'app-main',
-  standalone: true,
-  imports: [...COMPONENTS, ...MODULES],
-  template: `
+    selector: 'app-main',
+    imports: [...COMPONENTS, ...MODULES],
+    template: `
 
   <div class="h-screen flex w-full">
 
@@ -24,7 +23,7 @@ const MODULES = [MatDividerModule];
 
 
   `,
-  styles: ``
+    styles: ``
 })
 export class MainComponent {
 

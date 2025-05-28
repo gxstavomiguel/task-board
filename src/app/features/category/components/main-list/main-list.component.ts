@@ -2,10 +2,9 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CategoryService } from '../../service/category.service';
 
 @Component({
-  selector: 'app-main-list',
-  standalone: true,
-  imports: [],
-  template: `
+    selector: 'app-main-list',
+    imports: [],
+    template: `
   
     <section class="mt-16 mx-12 pl-8">
 
@@ -20,7 +19,7 @@ import { CategoryService } from '../../service/category.service';
     </section>
 
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainListComponent { 
 

@@ -5,10 +5,9 @@ import { categoryBackgroundColors } from '../../constants/category-colors'
 const MODULES = [MatDividerModule];
 
 @Component({
-  selector: 'app-colors-list',
-  standalone: true,
-  imports: [...MODULES],
-  template: `
+    selector: 'app-colors-list',
+    imports: [...MODULES],
+    template: `
   
     <section class="flex flex-col gap-4 w-full h-auto mb-4">
 
@@ -29,7 +28,7 @@ const MODULES = [MatDividerModule];
 </div>
   </section>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ColorsListComponent {
 

@@ -4,10 +4,9 @@ import { InclusionFormComponent } from "../../components/inclusion-form/inclusio
 const COMPONENTS = [InclusionFormComponent]
 
 @Component({
-  selector: 'app-task',
-  standalone: true,
-  imports: [...COMPONENTS],
-  template: `
+    selector: 'app-task',
+    imports: [...COMPONENTS],
+    template: `
   
     <div class="flex flex-col mx-10">
 
@@ -15,7 +14,7 @@ const COMPONENTS = [InclusionFormComponent]
     <app-inclusion-form />
     </div>
   `,
-  styles: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: ``,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskComponent { }
