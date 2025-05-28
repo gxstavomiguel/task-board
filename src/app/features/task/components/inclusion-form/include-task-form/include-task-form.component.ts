@@ -4,6 +4,7 @@ import {
   computed,
   DestroyRef,
   inject,
+  Signal,
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -85,7 +86,7 @@ export class IncludeTaskFormComponent {
 
   private readonly snackBarService = inject(SnackBarService);
 
-  public isIncludeTaskFormDisabled = computed(() => {
+  public isIncludeTaskFormDisabled: Signal<boolean> = computed(() => {
     if (this.taskService.isLoadingTask()) {
       this.newTaskForm.disable();
       return this.taskService.isLoadingTask();

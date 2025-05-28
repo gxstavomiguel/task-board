@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { IncludeTaskFormComponent } from './include-task-form/include-task-form.component';
 import { CategoryService } from '../../../category/service/category.service';
 import { categoryIdBackgroundColors } from '../../../category/constants/category-colors';
@@ -30,7 +30,7 @@ const COMMONS = [NgClass];
   styles: '',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InclusionFormComponent {
+export class InclusionFormComponent implements OnInit {
   private readonly categoryService = inject(CategoryService);
 
   public readonly taskService = inject(TaskService);
@@ -39,7 +39,7 @@ export class InclusionFormComponent {
 
   public colorVariants = categoryIdBackgroundColors;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.categoryService.getCategories().subscribe();
   }
 }
