@@ -12,7 +12,7 @@ export const tasks: Task[] = [
     title: 'Estudar Angular',
     isCompleted: true,
     categoryId: '4',
-  }
+  },
 ];
 
 export const task: Task = {
