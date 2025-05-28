@@ -1,4 +1,9 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { IncludeTaskFormComponent } from './include-task-form.component';
 import { CategoryService } from '../../../../category/service/category.service';
 import { TaskService } from '../../../services/task.service';
@@ -113,34 +118,35 @@ describe('IncludeTaskFormComponent', () => {
         .spyOn(taskService, 'createTask')
         .mockReturnValue(of(MOCKED_TASK));
 
-        expect(createTaskSpy).not.toHaveBeenCalled();
-        expect(component.isIncludeTaskFormDisabled()).toBeFalsy();
+      expect(createTaskSpy).not.toHaveBeenCalled();
+      expect(component.isIncludeTaskFormDisabled()).toBeFalsy();
     });
 
     it('should call createTask and insertATasksInTheList, snackBarConfigHandler and update isLoadingTask value', fakeAsync(() => {
-        component.newTaskForm.controls.title.setValue(MOCKED_TASK.title)
-        component.newTaskForm.controls.categoryId.setValue(MOCKED_TASK.categoryId)
+      component.newTaskForm.controls.title.setValue(MOCKED_TASK.title);
+      component.newTaskForm.controls.categoryId.setValue(
+        MOCKED_TASK.categoryId
+      );
 
-        const createTaskSpy = jest
+      const createTaskSpy = jest
         .spyOn(taskService, 'createTask')
         .mockReturnValue(of(MOCKED_TASK));
 
-        const insertATaskInTheTasksListSpy = jest
+      const insertATaskInTheTasksListSpy = jest
         .spyOn(taskService, 'insertATaskInTheTasksList')
         .mockImplementation(() => {});
 
-        const snackBarConfigHandler = jest
+      const snackBarConfigHandler = jest
         .spyOn(component, 'snackBarConfigHandler')
         .mockImplementation(() => {});
 
-        component.onEnterToAddATask();
+      component.onEnterToAddATask();
 
-        tick(3000);
+      tick(3000);
 
-        expect(createTaskSpy).toHaveBeenCalled();
-        expect(insertATaskInTheTasksListSpy).toHaveBeenCalledWith(MOCKED_TASK);
-        expect(snackBarConfigHandler).toHaveBeenCalledWith('Tarefa incluída');
-    }))
-
+      expect(createTaskSpy).toHaveBeenCalled();
+      expect(insertATaskInTheTasksListSpy).toHaveBeenCalledWith(MOCKED_TASK);
+      expect(snackBarConfigHandler).toHaveBeenCalledWith('Tarefa incluída');
+    }));
   });
 });

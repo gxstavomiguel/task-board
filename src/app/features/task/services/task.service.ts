@@ -30,31 +30,31 @@ export class TaskService {
   }
 
   public createTask(task: Partial<Task>): Observable<Task> {
-    return this._httpClient
-    .post<Task>(`${this._apiUrl}/tasks`, task)    
+    return this._httpClient.post<Task>(`${this._apiUrl}/tasks`, task);
   }
 
   public insertATaskInTheTasksList(newTask: Task): void {
     this.tasks.update(tasks => {
-      const newTaskList = [... tasks, newTask];
+      const newTaskList = [...tasks, newTask];
       return this.getSortedTasks(newTaskList);
     });
   }
 
   public updateTask(updatedTask: Task): Observable<Task> {
-    return this._httpClient.put<Task>(
-      `${this._apiUrl}/tasks/${updatedTask.id}`,
-      updatedTask
-    ).pipe(tap(task => this.updateATaskInTheTasksList(task)));
+    return this._httpClient
+      .put<Task>(`${this._apiUrl}/tasks/${updatedTask.id}`, updatedTask)
+      .pipe(tap(task => this.updateATaskInTheTasksList(task)));
   }
 
   public updateIsCompletedStatus(
     taskId: string,
     isCompleted: boolean
   ): Observable<Task> {
-    return this._httpClient.patch<Task>(`${this._apiUrl}/tasks/${taskId}`, {
-      isCompleted,
-    }).pipe(tap(task => this.updateATaskInTheTasksList(task)))
+    return this._httpClient
+      .patch<Task>(`${this._apiUrl}/tasks/${taskId}`, {
+        isCompleted,
+      })
+      .pipe(tap(task => this.updateATaskInTheTasksList(task)));
   }
 
   public updateATaskInTheTasksList(updatedTask: Task): void {
@@ -68,14 +68,13 @@ export class TaskService {
     });
   }
 
-  public deleteTask(taskId: string): Observable<Task>{
-    return this._httpClient.delete<Task>(`${this._apiUrl}/tasks/${taskId}`)
-    .pipe(tap(() => this.deleteATaskInTheTaskList(taskId)
-
-    ))
+  public deleteTask(taskId: string): Observable<Task> {
+    return this._httpClient
+      .delete<Task>(`${this._apiUrl}/tasks/${taskId}`)
+      .pipe(tap(() => this.deleteATaskInTheTaskList(taskId)));
   }
 
-  public deleteATaskInTheTaskList(taskId: string): void{
+  public deleteATaskInTheTaskList(taskId: string): void {
     this.tasks.update(tasks => tasks.filter(task => task.id !== taskId));
   }
 

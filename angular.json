@@ -33,9 +33,14 @@
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
-            "stylePreprocessorOptions" : {
+            "stylePreprocessorOptions": {
               "sass": {
-                "silenceDeprecations": ["color-functions", "global-builtin", "import", "mixed-decls"]
+                "silenceDeprecations": [
+                  "color-functions",
+                  "global-builtin",
+                  "import",
+                  "mixed-decls"
+                ]
               }
             },
             "scripts": [],

@@ -84,10 +84,10 @@ describe('TaskService', () => {
 
   describe('createTask', () => {
     it('should create a new taks', waitForAsync(() => {
-      let task: Task | undefined;      
-     
-      taskService.createTask(MOCKED_TASK).subscribe((response) => {
-         task = response;
+      let task: Task | undefined;
+
+      taskService.createTask(MOCKED_TASK).subscribe(response => {
+        task = response;
       });
 
       const req = httpTestingController.expectOne(`${apiUrl}/tasks`);

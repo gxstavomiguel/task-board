@@ -2,9 +2,9 @@ name: CI/CD pipeline
 
 on:
   push:
-    branches: [ 'master']
+    branches: ['master']
   pull_request:
-    branches: [ 'master' ]
+    branches: ['master']
 
 jobs:
   CI:
@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📑 Checkout Code
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
 
       - name: 📩 Set up Node.js
-        uses: actions/setup-node@v4 
+        uses: actions/setup-node@v4
         with:
           node-version: '21'
 
@@ -30,7 +30,7 @@ jobs:
 
       - name: 🏗️ Building
         run: npm run build
-  
+
   CD:
     name: Continuous Deploy
     runs-on: ubuntu-latest
@@ -45,5 +45,3 @@ jobs:
   #      run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
   #    - name: 🚀 Deploy Project Artifacts to Vercel
   #      run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-   

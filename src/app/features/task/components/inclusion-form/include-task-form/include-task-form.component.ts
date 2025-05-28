@@ -16,7 +16,7 @@ import { Task } from '../../../model/task.model';
 import { TaskService } from '../../../services/task.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { delay, finalize } from 'rxjs';
-import {NgClass} from '@angular/common';
+import { NgClass } from '@angular/common';
 import { SnackBarService } from '../../../../../shared/services/snack-bar.service';
 
 const MODULES = [
@@ -28,20 +28,17 @@ const MODULES = [
   ReactiveFormsModule,
 ];
 
-const COMMONS = [
- NgClass
-];
+const COMMONS = [NgClass];
 
 @Component({
-    selector: 'app-include-task-form',
-    imports: [...MODULES, ...COMMONS],
-    template: `
+  selector: 'app-include-task-form',
+  imports: [...MODULES, ...COMMONS],
+  template: `
     <form
       [ngClass]="{
         'cursor-not-allowed animate-pulse': isIncludeTaskFormDisabled(),
-        'cursor-pointer': !isIncludeTaskFormDisabled()
-        }"
-    
+        'cursor-pointer': !isIncludeTaskFormDisabled(),
+      }"
       autocomplete="off"
       class="flex flex-row gap-2 select-none"
       [formGroup]="newTaskForm">
@@ -72,8 +69,8 @@ const COMMONS = [
       </mat-form-field>
     </form>
   `,
-    styles: '',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  styles: '',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IncludeTaskFormComponent {
   private readonly categoryService = inject(CategoryService);
@@ -89,15 +86,13 @@ export class IncludeTaskFormComponent {
   private readonly snackBarService = inject(SnackBarService);
 
   public isIncludeTaskFormDisabled = computed(() => {
-
-    if(this.taskService.isLoadingTask()){
+    if (this.taskService.isLoadingTask()) {
       this.newTaskForm.disable();
       return this.taskService.isLoadingTask();
     }
-     this.newTaskForm.enable();
-      return this.taskService.isLoadingTask();
-
-  })
+    this.newTaskForm.enable();
+    return this.taskService.isLoadingTask();
+  });
 
   public selectionChangeHandler(event: MatSelectChange) {
     const categoryId = event.value;
@@ -134,6 +129,6 @@ export class IncludeTaskFormComponent {
   }
 
   public snackBarConfigHandler(message: string): void {
-  this.snackBarService.showSnackBar(message, 3000, 'end', 'bottom');
+    this.snackBarService.showSnackBar(message, 3000, 'end', 'bottom');
   }
 }

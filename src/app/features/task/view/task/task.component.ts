@@ -1,20 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { InclusionFormComponent } from "../../components/inclusion-form/inclusion-form.component";
+import { InclusionFormComponent } from '../../components/inclusion-form/inclusion-form.component';
 
-const COMPONENTS = [InclusionFormComponent]
+const COMPONENTS = [InclusionFormComponent];
 
 @Component({
-    selector: 'app-task',
-    imports: [...COMPONENTS],
-    template: `
-  
+  selector: 'app-task',
+  imports: [...COMPONENTS],
+  template: `
     <div class="flex flex-col mx-10">
-
-    <span class="font-bold text-4xl">Meu quadro de tarefas</span>
-    <app-inclusion-form />
+      <span class="font-bold text-4xl">Meu quadro de tarefas</span>
+      <app-inclusion-form />
     </div>
   `,
-    styles: ``,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskComponent { }
+export class TaskComponent {}
