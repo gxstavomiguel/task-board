@@ -13,7 +13,7 @@ export class TaskService {
   public tasks = signal<Task[]>([]);
 
   public numberOfTasks = computed(() => {
-    this.tasks().length;
+    return this.tasks().length;
   });
 
   public readonly _apiUrl = environment.apiUrl;

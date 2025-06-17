@@ -13,3 +13,11 @@ export const categoryIdBackgroundColors: Record<string, string> = {
   4: 'bg-red-600',
   5: 'bg-purple-600',
 };
+
+export const categoryIdTextColors: Record<number, string> = {
+  1: 'text-green-600',
+  2: 'text-orange-600',
+  3: 'text-blue-600',
+  4: 'text-red-600',
+  5: 'text-purple-600',
+};

@@ -9,17 +9,6 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class CategoryService {
-  // private readonly apiUrl = environment.apiUrl;
-
-  // private readonly httpClient = inject(HttpClient);
-
-  // public categories$ = this.httpClient.get<Category[]>(
-  //   `${this.apiUrl}/categories`
-  // );
-
-  // public categories = toSignal(this.categories$, {
-  //   initialValue: [] as Category[],
-  // })
 
   private readonly apiUrl = environment.apiUrl;
 
