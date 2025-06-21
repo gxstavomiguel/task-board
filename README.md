@@ -1,6 +1,8 @@
 # Gerenciador de Tarefas
 Este é um **Gerenciador de Tarefas (To-Do List)** desenvolvido com **Angular**, **Tailwind CSS**, **TypeScript** e um backend simulado com **JSON Server**.
 
+![Task Board](public/taskboard.png)
+
 ## Tecnologias Utilizadas
 -   **Angular** 
     
